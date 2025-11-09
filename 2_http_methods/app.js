@@ -4,6 +4,7 @@ const app = express();
 
 app.get("/", (req, res) => {
     res.send("You are in home router");
+    res.end();
 });
 
 app.post("/about", (req, res) => {

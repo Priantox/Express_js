@@ -1,4 +1,4 @@
-const app = require('./app');
+const app = require('./app'); //Change if app is inside folder
 const PORT = 3000;
 
 app.listen(PORT, () => {
