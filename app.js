@@ -1,22 +1,11 @@
 const express = require("express");
 const app = express();
+const userRouter = require("./routes/users.route");
 
+app.use(userRouter);
 
-app.get("/", (req, res) => {
-    res.send("You are in home router");
+app.use((req, res) =>{
+    res.send("<h1>404! Not Found<h1>");
 });
 
-app.post("/about", (req, res) => {
-    res.send("You are post req");
-});
-
-app.put("/about", (req, res) => {
-    res.send("You are put req");
-});
-
-app.delete("/about", (req, res) => {
-    res.send("You are delete req");
-});
-
-
-module.exports = app;  
+module.exports = app;    
