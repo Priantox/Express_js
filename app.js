@@ -1,14 +1,15 @@
 const express = require("express");
 const app = express();
 
+// https://www.npmjs.com/package/body-parser
+const bodyParser = require('body-parser')
 
-app.get("/", (req, res) => {
-    const id = req.query.id;
-    const name = req.query.name;
-    res.send(`Student id is: ${id}`);
-    res.send(`Student name is: ${name}`);
+app.use(bodyParser.urlencoded())
+app.use(bodyParser.json());
+
+app.post("/user",(req,res) => {
+    const name = req.body.name;
+    res.send(`welcome ${name}`);
 });
-
-
 
 module.exports = app;    
