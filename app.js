@@ -1,23 +1,23 @@
 const express = require("express");
 const app = express();
 
-app.get("/products/:id",(req,res) => {
-    const id = req.params.id;
 
-    if(!/^[0-9]+$/.test(id)){
-        return res.status(400).send("Invalid ID, must be in number");
-    }
-    res.send(`<h2>ID = ${id}</h2>`);
+app.get("/", (req, res) => {
+    res.send("You are in home router");
+    res.end();
+});
 
-    
-    // if(!/^[0-9]{3}$/.test(id)){
-    //     return res.status(400).send("Invalid ID, must be in number");
-    // }
+app.post("/about", (req, res) => {
+    res.send("You are post req");
+});
 
-    // if(!/^[a-zA-Z]+$/.test(id)){
-    //     return res.status(400).send("Invalid ID, must be in number");
-    // }
-    // res.send(`<h2>ID = ${id}</h2>`);
-})
+app.put("/about", (req, res) => {
+    res.send("You are put req");
+});
 
-module.exports = app;    
+app.delete("/about", (req, res) => {
+    res.send("You are delete req");
+});
+
+
+module.exports = app; 
